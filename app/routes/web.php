@@ -18,6 +18,8 @@ $router->group('', function (RouteGroup $router) {
 
     $router->post('/logout', [LogoutController::class, 'logout'])->setName('logout');
 
+   // $router->get('/', [\App\app\Controllers\LocationController::class, 'setLlocation'])->setName('setLlocation');
+
 })->middleware($container->get(Authenticated::class));
 
 // Routes that can be accessed only if the user is NOT authenticated

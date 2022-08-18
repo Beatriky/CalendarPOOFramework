@@ -1,5 +1,64 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-    <h3>Home page</h3>
+        <div class="containerbox">
+        <box class="boxcalendar">
+
+            <div id="calendar">
+                <div class="month">
+                    <ul>
+                        <li id="prev">&#10094;</li>
+                        <li id="month"></li>
+                        <li id="year"></li>
+                        <li id="next">&#10095;</li>
+                    </ul>
+                </div>
+                <ul id="weekdays">
+                    <li>Su</li>
+                    <li>Mo</li>
+                    <li>Tu</li>
+                    <li>We</li>
+                    <li>Th</li>
+                    <li>Fr</li>
+                    <li>Sa</li>
+                </ul>
+                <ul id="days" class="days"></ul>
+
+            </div>
+        </box>
+
+        <form method="GET" id="GetForm" style="visibility: hidden">
+            <input type="text" id="selectedDateForm" name="selectedDate">
+            <input type="text" id="selectedLocationForm" name="idLocation">
+            <input type="submit" value="submit" id="selectedDateSubmit">
+        </form>
+
+        <box class="boxuser">
+
+            <h1 id="schedule" class="schedule">Hello! There is nothing scheduled for today!</h1>
+            <ul id="profileID" class="profiles">
+                <h1 id="people-section"> Users </h1>
+                <li class="people-list">
+                </li>
+            </ul>
+
+            <div>
+                <label for="locations">Location: </label>
+                <select name="locations" id="locationID" form="locationForm">
+                    {% for location in locations %}
+                        <option value="Locations"> {{ location.city }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div id="appointmentButton" class="appointment-button" onclick="appointmentOnClick()">Make an appointment
+                <br>
+                <form method="POST" id="formSubmit" name="formSubmit">
+                    <input name="checker" value="true" style="display: none">
+                    <input id="submit" type="submit" name="submit" value='Add event'/>
+                </form>
+            </div>
+            <a href='logout.php'>Click here to log out</a>
+        </box>
+    </div>
 {% endblock %}
+
