@@ -10,15 +10,17 @@ body {
     font-family: Verdana, sans-serif;
 }
 
-
 #calendar {
-    max-width: 650px;
+    max-width: 1050px;
+    width: 50vw;
+    margin-left: 4vw;
+    margin-top: 5vh;
 }
 
 .month {
     padding: 70px 25px;
     width: 100%;
-    background: #bc85ff;
+    background: #5744b3;
     text-align: center;
 }
 
@@ -55,7 +57,7 @@ body {
 }
 
 #days li:hover {
-    background-color: #faa5f1;
+    background-color: #8873f0;
 
 }
 
@@ -69,7 +71,7 @@ body {
 }
 
 #days li.active {
-    background: #bc85ff;
+    background: #5744b3;
     color: white !important;
 }
 
@@ -130,7 +132,9 @@ body {
     margin-right: 15rem;
     margin-left: 3rem;
 }
+.schedule{
 
+}
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;

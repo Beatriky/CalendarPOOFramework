@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\{Auth\Auth,
+use App\{
     Config\Config,
     Exceptions\Handler,
     Providers\ConfigServiceProvider,

@@ -47,10 +47,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => $this->hash->create($data['password'])
         ]);
-
         $this->db->persist($user);
         $this->db->flush();
-
         return $user;
     }
 

@@ -9,8 +9,8 @@ let year = today.getFullYear();
 let calendarBody = document.getElementById("days");
 //url
 let documentURL = new URL(window.location.href);
-let urlLocation = documentURL.searchParams.get('idLocation');
-let urlDate = documentURL.searchParams.get('selectedDate');
+let urlLocation = documentURL.searchParams.get('location');
+let urlDate = documentURL.searchParams.get('date');
 let months = [
     "January",
     "February",
@@ -28,13 +28,11 @@ let months = [
 let selectedDate;
 
 function refillSelectedDay(year, month, day) {
-
     selectedDate = year + "-" + month + "-" + day;
 }
 
 console.log(urlDate);
-
-console.log(month);
+console.log(month+1);
 
 if (urlLocation !== null) {
     let parent = document.getElementById('locationID');
@@ -63,12 +61,7 @@ function dateURL() {
     document.getElementById('selectedDateForm').value = selectedDate;
     document.getElementById('selectedDateSubmit').click();
 }
-
-
-let modal = document.getElementById('loginID');
-
 function showCalendar(month, year) {
-
     let firstDay = (new Date(year, month)).getDay();
     calendarBody.innerHTML = "";
     let totalDays = daysInMonth(month, year);
@@ -195,7 +188,6 @@ function renderCalendar(year, month) {
 
 function eventActivator() {
     const daysVar = document.querySelectorAll(".singleDay");
-    console.log(daysVar);
     daysVar.forEach(item => {
         item.addEventListener('click', event => {
             document.getElementById('selectedLocationForm').value = document.getElementById('locationID').value;
@@ -212,22 +204,12 @@ function eventActivator() {
     })
 }
 
+console.log(document.getElementById('locationID').value);
+
 function sendAxios() {
     let params = new URLSearchParams();
     params.append('parameter', 'value');
     axios.get('/.php', params).then(response => {
         console.log(response)
     });
-}
-
-const appointmentButton = document.getElementById("appointmentButton");
-appointmentButton.addEventListener("click", appointmentOnClick);
-
-function appointmentOnClick() {
-}
-
-
-function onClick() {
-    alert("Day:  " + this.innerText);
-    document.getElementById("days").innerText = `Schedule for August ${this.innerText}, 2022`;
 }

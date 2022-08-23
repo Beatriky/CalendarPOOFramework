@@ -19,5 +19,5 @@ class LocationController
         $query="select * from locations";
     }
 
-
-}$appointment->fill(['location' => $location[$selectedDate['location']]], 'user'=>$this->auth->user(), 'appointment_date'=>$selectedDate);
+//$appointment->fill(['location' => $location[$selectedDate['location']]], 'user'=>$this->auth->user(), 'appointment_date'=>$selectedDate);
+}

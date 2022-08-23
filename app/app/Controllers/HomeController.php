@@ -15,16 +15,12 @@ class HomeController
 {
     public function __construct(protected View $view,protected EntityManager $db)
     {
-
     }
 
     public function index(ServerRequestInterface $request): ResponseInterface
     {
         $locations = $this->db->getRepository(Location::class)->findAll();
-
         return $this->view->render(new Response, 'home.twig',['locations' => $locations]);
     }
-
-
 
 }

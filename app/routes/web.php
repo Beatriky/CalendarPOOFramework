@@ -6,6 +6,7 @@ global $router;
 /** @var Container $container */
 global $container;
 
+use App\Controllers\ReservationController;
 use App\Controllers\{Auth\LoginController, Auth\LogoutController, Auth\RegisterController, HomeController};
 use App\Middleware\{Authenticated, Guest};
 use League\{Container\Container, Route\RouteGroup, Route\Router};
@@ -18,7 +19,9 @@ $router->group('', function (RouteGroup $router) {
 
     $router->post('/logout', [LogoutController::class, 'logout'])->setName('logout');
 
-   // $router->get('/', [\App\app\Controllers\LocationController::class, 'setLlocation'])->setName('setLlocation');
+   // $router->get('/reservation', [ReservationController::class, 'index'])->setName('reservation');
+
+    $router->post('/reservation', [ReservationController::class, 'store'])->setName('reservation.store');
 
 })->middleware($container->get(Authenticated::class));
 
